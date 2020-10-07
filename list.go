@@ -7,13 +7,13 @@ type List struct {
 	Length int
 }
 
-/* Linked list node. */
+/* Node of linked list. */
 type Node struct {
 	Value  int
 	Next *Node
 }
 
-/* Initialize linked list. */
+/* new initializes a linked list. */
 func New() List {
 	return List{}
 }
@@ -41,7 +41,7 @@ func (l *List) Get(index int) int {
 }
 
 /*
- * Add a node before the first element of the linked list.
+ * AddAtHead a node before the first element of the linked list.
  * After the insertion, the new node will be the first node of the linked list.
  */
 func (l *List) AddAtHead(val int) {
@@ -53,7 +53,7 @@ func (l *List) AddAtHead(val int) {
 }
 
 /*
- * Append a node to the last element of the linked list.
+ * AddAtTail a node to the last element of the linked list.
  */
 func (l *List) AddAtTail(val int) {
 	if l.Head == nil {
@@ -74,7 +74,7 @@ func (l *List) AddAtTail(val int) {
 }
 
 /*
- * Add a node before the index-th node in the linked list.
+ * AddAtIndex a node before the index-th node in the linked list.
  * If index equals to the length of linked list, the node will be appended
  * to the end of linked list. If index is greater than the length, the node
  * will not be inserted.
@@ -104,7 +104,7 @@ func (l *List) AddAtIndex(index int, val int) {
 }
 
 /*
- * Delete the index-th node in the linked list, if the index is valid.
+ * DeleteAtIndex a node in the linked list, if the index is valid.
  */
 func (l *List) DeleteAtIndex(index int) {
 	if index < 0 || index >= l.Length {
