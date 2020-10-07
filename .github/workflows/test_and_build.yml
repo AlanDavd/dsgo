@@ -42,27 +42,6 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           path-to-lcov: coverage.lcov
-  imports:
-    name: Check go imports
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: go imports
-        uses: grandcolline/golang-github-actions@v1.1.0
-        with:
-          run: imports
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-  gofmt:
-    name: Check gofmt
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: gofmt
-        uses: grandcolline/golang-github-actions@v1.1.0
-        with:
-          run: fmt
-          token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     name: Check golint
