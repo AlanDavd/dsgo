@@ -1,28 +1,27 @@
-/* Linked list. */
+// Package dsgo implements data structures in the Go programming language.
+//
+// This package is not production ready.
 package dsgo
 
-/* List container. */
+// List container
 type List struct {
 	Head   *Node
 	Length int
 }
 
-/* Linked list node. */
+// Node refers to a linked list node
 type Node struct {
 	Value  int
 	Next *Node
 }
 
-/* Initialize linked list. */
+// New initializes a new linked list
 func New() List {
 	return List{}
 }
 
-/*
- * Get the value of the index-th node in the linked list.
- * Return -1 if the index is invalid.
- * List is zero-based.
- */
+// Get retrieves the value of the index-th node in the linked list
+// Return -1 if the index is invalid. List is zero-based.
 func (l *List) Get(index int) int {
 	if index < 0 || index > l.Length-1 {
 		return -1
@@ -40,10 +39,8 @@ func (l *List) Get(index int) int {
 	return currentNode.Value
 }
 
-/*
- * Add a node before the first element of the linked list.
- * After the insertion, the new node will be the first node of the linked list.
- */
+// AddAtHead adds a node before the first element of the linked list.
+// After the insertion, the new node will be the first node of the linked list
 func (l *List) AddAtHead(val int) {
 	var newNode Node
 	newNode.Value = val
@@ -52,9 +49,7 @@ func (l *List) AddAtHead(val int) {
 	l.Length++
 }
 
-/*
- * Append a node to the last element of the linked list.
- */
+// AddAtTail Append a node to the last element of the linked list
 func (l *List) AddAtTail(val int) {
 	if l.Head == nil {
 		l.AddAtHead(val)
@@ -73,12 +68,10 @@ func (l *List) AddAtTail(val int) {
 	l.Length++
 }
 
-/*
- * Add a node before the index-th node in the linked list.
- * If index equals to the length of linked list, the node will be appended
- * to the end of linked list. If index is greater than the length, the node
- * will not be inserted.
- */
+// AddAtIndex adds a node before the index-th node in the linked list.
+// If index equals to the length of linked list, the node will be appended
+// to the end of linked list. If index is greater than the length, the node
+// will not be inserted
 func (l *List) AddAtIndex(index int, val int) {
 	if index == 0 {
 		l.AddAtHead(val)
@@ -103,9 +96,7 @@ func (l *List) AddAtIndex(index int, val int) {
 	l.Length++
 }
 
-/*
- * Delete the index-th node in the linked list, if the index is valid.
- */
+// DeleteAtIndex deletes the index-th node in the linked list, if the index is valid
 func (l *List) DeleteAtIndex(index int) {
 	if index < 0 || index >= l.Length {
 		return
