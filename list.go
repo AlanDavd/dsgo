@@ -1,4 +1,6 @@
-// Package dsgo linked list implementation
+// Package dsgo implements data structures in the Go programming language.
+//
+// This package is not production ready.
 package dsgo
 
 // List container
@@ -18,7 +20,7 @@ func New() List {
 	return List{}
 }
 
-// Get the value of the index-th node in the linked list.
+// Get retrieves the value of the index-th node in the linked list.
 // Return -1 if the index is invalid. List is zero-based
 func (l *List) Get(index int) interface{} {
 	if index < 0 || index > l.length-1 {
@@ -37,7 +39,7 @@ func (l *List) Get(index int) interface{} {
 	return currentNode.Value
 }
 
-// AddAtHead a node before the first element of the linked list.
+// AddAtHead inserts a node before the first element of the linked list.
 // After the insertion, the new node will be the first node of the linked list
 func (l *List) AddAtHead(val interface{}) {
 	var newNode Node
@@ -47,7 +49,7 @@ func (l *List) AddAtHead(val interface{}) {
 	l.length++
 }
 
-// AddAtTail a node to the last element of the linked list
+// AddAtTail appends a node to the last element of the linked list
 func (l *List) AddAtTail(val interface{}) {
 	if l.head == nil {
 		l.AddAtHead(val)
@@ -66,7 +68,7 @@ func (l *List) AddAtTail(val interface{}) {
 	l.length++
 }
 
-// AddAtIndex a node before the index-th node in the linked list.
+// AddAtIndex inserts a node before the index-th node in the linked list.
 // If index equals to the length of linked list, the node will be appended
 // to the end of linked list. If index is greater than the length, the node
 // will not be inserted
@@ -94,7 +96,7 @@ func (l *List) AddAtIndex(index int, val interface{}) {
 	l.length++
 }
 
-// DeleteAtIndex a node in the linked list, if the index is valid
+// DeleteAtIndex deletes a node in the linked list, if the index is valid
 func (l *List) DeleteAtIndex(index int) {
 	if index < 0 || index >= l.length {
 		return
